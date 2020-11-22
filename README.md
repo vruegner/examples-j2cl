@@ -13,25 +13,35 @@ Following key features are demonstrated:
 ## Usage
 For compilation of the server part and creating a webapp directory switch to the root directory of the project and do
 
-```bazel build //webapp:webapp```
+```
+bazel build //webapp:webapp
+```
 
 For compilation of the client part and running the client switch to the root directory of the project and do
 
-```bazel run //src/main/java/vruegner/example/j2cl/client:client-app_dev_server```
+```
+bazel run //src/main/java/vruegner/example/j2cl/client:client-app_dev_server
+```
 
 For running the server, e.g. with tomcat, copy the contents of
 
-```bazel-bin/webapp```
+```
+bazel-bin/webapp
+```
 
 into an empty directory.
 
 In
 
-```$TOMCAT_HOME/conf/Catalina/localhost```
+```
+$TOMCAT_HOME/conf/Catalina/localhost
+```
 
 create a file named
 
-```examples-j2cl.xml```
+```
+examples-j2cl.xml
+```
 
 with the following contents
 
