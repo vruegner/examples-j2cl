@@ -19,7 +19,7 @@ For compilation of the client part and running the client switch to the root dir
 
 ```bazel run //src/main/java/vruegner/example/j2cl/client:client-app_dev_server```
 
-For running the server e.g. with tomcat copy the contents of
+For running the server, e.g. with tomcat, copy the contents of
 
 ```bazel-bin/webapp```
 
