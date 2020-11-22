@@ -19,7 +19,7 @@
 
 
 	<servlet>
-		<servlet-name>Testapp</servlet-name>
+		<servlet-name>examples-j2cl</servlet-name>
 		<servlet-class>vruegner.example.j2cl.server.RestServletContainer
 		</servlet-class>
 		<init-param>
