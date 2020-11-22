@@ -23,11 +23,13 @@ For running the server, e.g. with tomcat, copy the contents of
 
 ```bazel-bin/webapp```
 
-into an empty directory. In
+into an empty directory.
+
+In
 
 ```$TOMCAT_HOME/conf/Catalina/localhost```
 
-create a file
+create a file named
 
 ```examples-j2cl.xml```
 
