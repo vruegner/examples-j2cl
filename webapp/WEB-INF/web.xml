@@ -30,7 +30,7 @@
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>Testapp</servlet-name>
+		<servlet-name>examples-j2cl</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
 
