@@ -9,6 +9,7 @@ j2cl_library(
     visibility = ["//src/main/java/vruegner/example/j2cl/client:__subpackages__"],
     srcs = [
         "Location.java",
+	"Menu.java",
     ],
     deps = [
         "@com_google_j2cl//:jsinterop-annotations-j2cl",
@@ -23,6 +24,7 @@ java_library(
     visibility = ["//src/main/java/vruegner/example/j2cl/server:__subpackages__"],
     srcs = [
         "Location.java",
+	"Menu.java",
     ],
     deps = [
         "@com_google_j2cl//:jsinterop-annotations",

@@ -7,6 +7,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import vruegner.example.j2cl.shared.Location;
+import vruegner.example.j2cl.shared.Menu;
 
 /**                                                                                                                                                                                             
  *  Copyright 2020 Volker Rügner
@@ -36,12 +37,15 @@ public class RequestHandler {
 		location.type = "Sushi-Bar with booze";
 		location.longitude = 61.475;
 		location.latitude = 41.381;
+		Menu menu = new Menu();
+		menu.name = "dinner menu";
+		location.menu = menu;
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String login(@Context HttpServletRequest pRequest) {
-		return location.toJSON();
+	public String getLocation(@Context HttpServletRequest pRequest) {
+	    return location.toJSON();
 	}
 
 }

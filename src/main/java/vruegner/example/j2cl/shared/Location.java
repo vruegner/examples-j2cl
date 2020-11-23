@@ -31,13 +31,16 @@ public class Location {
 
 	public double longitude;
 
+    public Menu menu;
+    
 	@JsOverlay
 	public final String toHTML() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Name: " + name + "<br>");
+		sb.append("<b>" + name + "</b><br>");
 		sb.append("Type: " + type + "<br>");
 		sb.append("Latitude: " + latitude + "<br>");
-		sb.append("Longitude: " + longitude);
+		sb.append("Longitude: " + longitude + "<br>");
+		sb.append("Menu: " + menu.toHTML());
 		return sb.toString();
 	}
 
@@ -48,7 +51,8 @@ public class Location {
 		sb.append("\"name\":\"" + name + "\",");
 		sb.append("\"type\":\"" + type + "\",");
 		sb.append("\"latitude\":" + latitude + ",");
-		sb.append("\"longitude\":" + longitude);
+		sb.append("\"longitude\":" + longitude + ",");
+		sb.append("\"menu\":" + menu.toJSON());
 		sb.append("}");
 		return sb.toString();
 	}
@@ -63,6 +67,7 @@ public class Location {
 		sb.append("Type: " + type + "\n");
 		sb.append("Latitude: " + latitude + "\n");
 		sb.append("Longitude: " + longitude);
+		sb.append("Menu: " + menu.toPrint());
 		return sb.toString();
 	}
 

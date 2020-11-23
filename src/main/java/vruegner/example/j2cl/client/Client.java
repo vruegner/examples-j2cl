@@ -15,6 +15,7 @@ import elemental2.dom.CSSProperties;
 import elemental2.core.JSONType;
 import elemental2.dom.Response;
 import vruegner.example.j2cl.shared.Location;
+import vruegner.example.j2cl.shared.Menu;
 
 /**                                                                                                                                                                                             
  *  Copyright 2020 Volker Rügner
@@ -59,7 +60,10 @@ public class Client {
 		loc.type = "Sushi-Bar";
 		loc.longitude = 43.823;
 		loc.latitude = 24.529;
-
+		Menu menu = new Menu();
+		menu.name = "brunch menu";
+		loc.menu = menu;
+		
 		LocationWC client_loc = new LocationWC();
 		client_loc.style.marginRight = CSSProperties.MarginRightUnionType.of("96px");
 		client_loc.setLocation(loc);
@@ -76,9 +80,10 @@ public class Client {
 	}
 
 	private void load(LocationWC server_page) {
-		fetch("http://localhost:8080/testapp/rest/location")
+		fetch("http://localhost:8080/examples-j2cl/rest/location")
        		.then(Response::json)
 	        .then(data -> {
+			console.log("JSON:" + data);
 			Location loc = Js.cast(data);
 			server_page.setLocation(loc);
                		return null;
