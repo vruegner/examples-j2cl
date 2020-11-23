@@ -1,0 +1,8 @@
+/bazel-bin
+bazel-bin/
+/bazel-j2cl
+bazel-j2cl/
+/bazel-out
+bazel-out/
+/bazel-testlogs
+bazel-testlogs/
