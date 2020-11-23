@@ -29,7 +29,7 @@ For running the server, e.g. with tomcat, copy the contents of
 bazel-bin/webapp
 ```
 
-into an empty directory.
+into an empty directory using ```cp -RL ...``` to get rid of symbolic links.
 
 In
 
