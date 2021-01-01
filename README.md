@@ -23,14 +23,6 @@ For compilation of the client part and running the client switch to the root dir
 bazel run //src/main/java/vruegner/example/j2cl/client:client-app_dev_server
 ```
 
-For running the server, e.g. with tomcat, copy the contents of
-
-```
-bazel-bin/webapp
-```
-
-into an empty directory using ```cp -RL ...``` to get rid of symbolic links.
-
 In
 
 ```
@@ -47,9 +39,10 @@ with the following contents
 
 ```
 <Context displayName="examples-j2cl"
-  docBase="<the directory where you copied bazel-bin/webapp>"
-  reloadable="true"
-/>
+  docBase="<path to examples-j2cl/bazel-bin/webapp>"
+  reloadable="true">
+  <Resources allowLinking="true"></Resources>
+</Context>
 ```
 
 and restart tomcat.
