@@ -1,5 +1,3 @@
-# Deprecated, does not work anymore!
-
 ## examples-j2cl
 This project contains a webapp where the client and server part are written almost entirely in java making use of bazel and j2cl.
 
