@@ -54,8 +54,8 @@ setup_j2cl_workspace()
 #
 http_archive(
     name = "com_google_elemental2",
-    strip_prefix = "elemental2-1.1.0",
-    url = "https://github.com/google/elemental2/archive/1.1.0.zip",
+    strip_prefix = "elemental2-master",
+    url = "https://github.com/google/elemental2/archive/master.zip",
 )
 
 load("@com_google_elemental2//build_defs:repository.bzl", "load_elemental2_repo_deps")
