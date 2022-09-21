@@ -5,6 +5,7 @@ import elemental2.dom.ShadowRoot;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.Element;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.ShadowRootInit;
 import jsinterop.annotations.JsType;
 import jsinterop.annotations.JsConstructor;
 import vruegner.example.j2cl.shared.Location;    
@@ -37,7 +38,7 @@ public class LocationWC extends HTMLElement {
 
     @JsConstructor
     public LocationWC() {
-	HTMLElement.AttachShadowOptionsType shadowOptions = HTMLElement.AttachShadowOptionsType.create();
+        ShadowRootInit shadowOptions = ShadowRootInit.create();
        	shadowOptions.setMode("closed");
        	ShadowRoot shadow = attachShadow(shadowOptions);
 
