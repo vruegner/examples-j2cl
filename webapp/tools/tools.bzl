@@ -1,35 +1,49 @@
-def _prepare_file(ctx, output, target_file):
+def _war_impl(ctx):
 
-        output_file = ctx.actions.declare_file(output)
+    files_to_zip = []
+    inputs = []
+    output_file_war = ctx.actions.declare_file(ctx.attr.war_name)
 
-        ctx.actions.symlink(
-            output = output_file,
-            target_file = target_file,
-        )
-
-        return output_file
-
-def _webapp_impl(ctx):
-
-    files = []
-
-    for file in ctx.files.srcs:
-        files.append(_prepare_file(ctx, file.short_path[len(ctx.label.package) + 1:], file))
+    inputs += ctx.files.data
+    for file in ctx.files.data:
+        files_to_zip.append(file.short_path[len(ctx.attr.data_dir) + 1:] + "=" + file.path)
 
     for providers in ctx.attr.deps:
         if JavaInfo in providers:
-             for file in providers[JavaInfo].transitive_runtime_jars.to_list():
-                 files.append(_prepare_file(ctx, "WEB-INF/lib/" + file.basename, file))
+            inputs += providers[JavaInfo].transitive_runtime_jars.to_list()
+            for dep in providers[JavaInfo].transitive_runtime_jars.to_list():
+                files_to_zip.append("WEB-INF/lib/" + dep.basename + "=" + dep.path)
 
-    return [DefaultInfo(runfiles = ctx.runfiles(files = files))]
+    arguments = ["c", output_file_war.path] + files_to_zip
 
-webapp = rule(
+    ctx.actions.run(
+        inputs = inputs,
+        outputs = [output_file_war],
+        executable = ctx.executable._zipper,
+        arguments = arguments,
+    )
 
-    implementation = _webapp_impl,
+    return [DefaultInfo(files = depset([output_file_war]))]
 
+war = rule(
+    implementation = _war_impl,
     attrs = {
-        "srcs": attr.label_list(allow_files = True),
-        "deps": attr.label_list(),
+        "war_name": attr.string(
+            mandatory = True,
+        ),
+        "data": attr.label_list(
+            allow_files = True,
+            mandatory = True,
+        ),
+        "data_dir": attr.string(
+            mandatory = True,
+        ),
+        "deps": attr.label_list(
+        ),
+        "_zipper": attr.label(
+            default = Label("@bazel_tools//tools/zip:zipper"),
+            executable = True,
+            cfg = "host",
+        ),
     },
-
 )
