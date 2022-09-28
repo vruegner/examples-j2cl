@@ -47,7 +47,7 @@ public class LocationWC extends HTMLElement {
     }
 
     public void setLocation(Location pLoc) {
-	locationDiv.innerHTML = pLoc != null ? pLoc.toHTML() : "";
+        locationDiv.innerHTML = pLoc != null ? pLoc.toHTML() : "";
     }
 
 }
