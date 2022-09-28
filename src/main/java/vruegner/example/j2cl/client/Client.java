@@ -83,7 +83,6 @@ public class Client {
 		fetch("http://localhost:8080/examples-j2cl/rest/location")
        		.then(Response::json)
 	        .then(data -> {
-			console.log("JSON:" + data);
 			Location loc = Js.cast(data);
 			server_page.setLocation(loc);
                		return null;
