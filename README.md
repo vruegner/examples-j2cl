@@ -9,6 +9,7 @@ Following key features are demonstrated:
 + jsinterop
 + REST
 + jersey2
++ war
 
 ## Usage
 For compilation of the server part and creating a webapp directory switch to the root directory of the project and do
@@ -16,6 +17,13 @@ For compilation of the server part and creating a webapp directory switch to the
 ```
 bazel build //webapp:webapp
 ```
+Then deploy the file
+
+```
+bazel-bin/webapp/examples-j2cl.war
+```
+
+to your servlet container.
 
 For compilation of the client part and running the client switch to the root directory of the project and do
 
@@ -23,26 +31,4 @@ For compilation of the client part and running the client switch to the root dir
 bazel run //src/main/java/vruegner/example/j2cl/client:client-app_dev_server
 ```
 
-In
-
-```
-$TOMCAT_HOME/conf/Catalina/localhost
-```
-
-create a file named
-
-```
-examples-j2cl.xml
-```
-
-with the following contents
-
-```
-<Context displayName="examples-j2cl"
-  docBase="<path to examples-j2cl/bazel-bin/webapp>"
-  reloadable="true">
-  <Resources allowLinking="true"></Resources>
-</Context>
-```
-
-and restart tomcat.
+Point your webbrowser to the URL displayed from the last command.
