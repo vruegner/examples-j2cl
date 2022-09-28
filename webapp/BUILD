@@ -1,12 +1,12 @@
-load("//webapp/tools:tools.bzl", "webapp")
+load("//webapp/tools:tools.bzl", "war")
 
-webapp(
+war(
     name = "webapp",
-    srcs = [
-        "WEB-INF/web.xml",
-    ],
+    data = ["WEB-INF/web.xml"],
+    data_dir = "webapp",
+    war_name = "examples-j2cl.war",
     deps = [
-	"//src/main/java/vruegner/example/j2cl/server:server-lib",
+         "//src/main/java/vruegner/example/j2cl/server:server-lib",
     ],
 )
                                                                                                                                                                                              
