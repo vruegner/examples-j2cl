@@ -12,7 +12,7 @@ Following key features are demonstrated:
 + war
 
 ## Usage
-For compilation of the server part and creating a webapp directory switch to the root directory of the project and do
+For compilation of the server part switch to the root directory of the project and do
 
 ```
 bazel build //webapp:webapp
