@@ -9,7 +9,7 @@ Following key features are demonstrated:
 + jsinterop
 + REST
 + jersey2
-+ war
++ war creation with bazel
 
 ## Usage
 For compilation of the server part switch to the root directory of the project and do
