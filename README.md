@@ -1,5 +1,5 @@
 ## examples-j2cl
-This project contains a webapp where the client and server part are written almost entirely in java making use of bazel and j2cl.
+This project contains a webapp where the client and server part are written almost entirely in java making use of bazel and j2cl with elemental2.
 
 Following key features are demonstrated:
 + bazel
