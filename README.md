@@ -31,7 +31,11 @@ For compilation of the client part and running the client switch to the root dir
 bazel run //src/main/java/vruegner/example/j2cl/client:client-app_dev_server
 ```
 
-Point your webbrowser to the URL displayed from the last command.
+Point your webbrowser to the URL displayed from the last command and open
+
+```
+/client-app_dev.html
+```
 
 You should see two boxes, one for data from the client and the other one for data loaded from the server via a REST call.
 Both boxes are an instance of the webcomponent ```LocationWC```.
